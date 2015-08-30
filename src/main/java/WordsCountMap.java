@@ -16,7 +16,6 @@ public class WordsCountMap extends
 		Mapper<NullWritable, BytesWritable, Text, IntWritable> {
 	private static final String ENCODING = "UTF-8";
 	private static final String DELIM = "_";
-	private static final CheckType TYPE =  CheckType.wordsCount;
 
 	@Override
 	protected void map(
@@ -35,7 +34,7 @@ public class WordsCountMap extends
 		Integer wordsCount = statsCalculator.getWordsCount(strReview);
 
 		// Write the data to map-reduce context
-		context.write(new Text(revType + DELIM + TYPE.toString()), new IntWritable(wordsCount));
+		context.write(new Text(revType + DELIM + CheckType.wordsCount.toString()), new IntWritable(wordsCount));
 	}
 
 	/**

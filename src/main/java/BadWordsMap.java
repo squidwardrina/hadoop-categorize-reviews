@@ -13,7 +13,6 @@ public class BadWordsMap extends
 		Mapper<NullWritable, BytesWritable, Text, IntWritable> {
 	private static final String ENCODING = "UTF-8";
 	private static final String DELIM = "_";
-	private static final CheckType TYPE = CheckType.goodWords;
 
 	@Override
 	protected void map(
@@ -31,7 +30,7 @@ public class BadWordsMap extends
 		String strReview = IOUtils.toString(file.getBytes(), ENCODING);
 		Integer wordsCount = statsCalculator.getBadWords(strReview);
 		// Write the data to map-reduce context
-		context.write(new Text(revType + DELIM + TYPE.toString()),
+		context.write(new Text(revType + DELIM + CheckType.badWords.toString()),
 				new IntWritable(wordsCount));
 	}
 

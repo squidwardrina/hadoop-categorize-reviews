@@ -41,7 +41,7 @@ public class CategorizeMap extends
 		avgWords = AverageStats.getInstance().getGoodWords();
 		resultGood = getClosestType(wordsCount, avgWords); // get closest type
 
-		// Get rev's good words & avg good words
+		// Get rev's bad words & avg bad words
 		wordsCount = statsCalculator.getBadWords(strReview);
 		avgWords = AverageStats.getInstance().getBadWords();
 		resultBad = getClosestType(wordsCount, avgWords); // get closest type

@@ -84,12 +84,10 @@ public class Driver {
 
 	/**
 	 * Performs the map reduce behavior analyze job.
-	 * 
-	 * @param inPath
-	 *            input path
+	 *
 	 * @param mapper
 	 *            mapper class
-	 * @param outPath
+	 * @param resPath
 	 *            path to save the operation results
 	 * 
 	 * @throws IOException
@@ -169,7 +167,7 @@ public class Driver {
 			InterruptedException, ClassNotFoundException {
 		// Configure new job
 		Configuration conf = new Configuration();
-		Job sJob = new Job(conf, "Get false trips");
+		Job sJob = new Job(conf, "Categorize input reviews");
 		sJob.setJarByClass(Driver.class);
 
 		// Mapper settings:
